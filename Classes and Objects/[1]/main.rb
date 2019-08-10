@@ -1,5 +1,5 @@
 require_relative 'person'
 
-jeka = Person.new('Jeka', 'Datsiuk')
+jeka = Person.new('Jeka', 'Datsiuk', 18)
 
-puts jeka.full_name
+puts jeka.old
