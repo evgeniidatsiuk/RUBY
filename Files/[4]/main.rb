@@ -20,13 +20,34 @@ if File.exist?(questions_path)
 else
   puts 'File is not found'
 end
+# count = 0
+# questions.each_with_index do |x, y|
+#   puts x
+#   answer = STDIN.gets.chomp + "\n"
+#   if answers.include?(answer)
+#     puts 'Right!'
+#     count += 1
+#   else
+#     puts 'Incorrect answer. Correct answer: ' + answers[y]
+#   end
+# end
+# puts 'You have right answers: ' + count.to_s + ' from ' + questions.count.to_s
 
-questions.each_with_index do |x, y|
-  puts x
-  answer = STDIN.gets.chomp + "\n"
-  if answers.include?(answer)
+index = 0
+correct_answers = 0
+while index < questions.size
+
+  puts questions[index]
+  answer = STDIN.gets.chomp
+  correct_answer = answers[index]
+
+  if answer == correct_answer.chomp
     puts 'Right!'
+    correct_answers += 1
   else
-    puts 'Incorrect answer. Correct answer: ' + answers[y]
+    puts 'Incorrect answer. Correct answer: ' + answers[index]
   end
+  index += 1
 end
+
+puts "You have right answers: #{correct_answers} from #{index}"
