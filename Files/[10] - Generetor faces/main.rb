@@ -7,10 +7,11 @@ foreheads_path = current_path + '/data/foreheads.txt'
 mouths_path = current_path + '/data/mouths.txt'
 noses_path = current_path + '/data/noses.txt'
 
-file_name = 'face'
-time = Time.now.strftime('%m.%s')
+time = Time.now
 
-out_file = File.new(current_path + '/' + "#{file_name}-#{time}.txt", 'a')
+file_name = 'face_' + time.strftime('%Y.%m.%d_%H-%M-%S') + '.txt'
+
+out_file = File.new(file_name, 'a')
 
 status = 0
 bad_path = []
@@ -64,7 +65,7 @@ if status == 1
    out_file.puts('   ' + eyes.sample)
    out_file.puts('   ' + noses.sample)
    out_file.puts('   ' + mouths.sample)
-
+   out_file.close
 else
   puts 'Files are not found:'
   bad_path.each do |x|
