@@ -1,8 +1,10 @@
-str = STDIN.gets.chomp.downcase
+str = STDIN.gets.chomp
 
-revers_str = str.reverse
+stripped_string = str.delete(' ,.!?;:-—').downcase
 
-if str == revers_str
+revers_str = stripped_string.reverse
+
+if stripped_string == revers_str
   puts '+'
 else
   puts '-'
