@@ -12,11 +12,13 @@ loop do
 
   break if str == 'x'
 
-  if str =~ /#{regex_string}/
-    puts ';)'
-    count += 1
-  else
-    puts ':('
+  if word_exists?(str)
+    if str =~ /#{regex_string}/
+      puts '+'
+      count += 1
+    else
+      puts '-'
+    end
   end
 end
-puts "result: #{count}"
+puts "Result: #{count}"
